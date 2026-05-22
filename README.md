@@ -4,10 +4,10 @@
 
 <p align="center">
   <strong>
-    Your coding agent remembers everything. No more re-explaining.
+   Kodlama aracınız her şeyi hatırlıyor. Tekrar açıklamanıza gerek yok.
     Built on <a href="https://github.com/iii-hq/iii">iii engine</a>
   </strong><br/>
-  Persistent memory for Claude Code, Cursor, Gemini CLI, Codex CLI, Hermes, OpenClaw, pi, OpenCode, and any MCP client.
+ Claude Code, Cursor, Gemini CLI, Codex CLI, Hermes, OpenClaw, pi, OpenCode ve herhangi bir MCP istemcisi için kalıcı bellek.
 </p>
 
 <p align="center">
@@ -29,7 +29,7 @@
 </p>
 
 <p align="center">
-  <em>The gist extends Karpathy's LLM Wiki pattern with confidence scoring, lifecycle, knowledge graphs, and hybrid search: agentmemory is the implementation.</em>
+  <em>Özetle, Karpathy'nin LLM Wiki modelini güven puanlaması, yaşam döngüsü, bilgi grafikleri ve hibrit arama ile genişletiyor: agentmemory ise uygulamanın temelini oluşturuyor.</em>
 </p>
 
 <p align="center">
@@ -54,23 +54,23 @@
 </p>
 
 <p align="center">
-  <a href="#install">Install</a> &bull;
-  <a href="#quick-start">Quick Start</a> &bull;
-  <a href="#benchmarks">Benchmarks</a> &bull;
-  <a href="#vs-competitors">vs Competitors</a> &bull;
-  <a href="#works-with-every-agent">Agents</a> &bull;
-  <a href="#how-it-works">How It Works</a> &bull;
+  <a href="#install">Yükleme</a> &bull;
+  <a href="#quick-start">Hızlı Başlangıç</a> &bull;
+  <a href="#benchmarks">Skorlamalar</a> &bull;
+  <a href="#vs-competitors">Rakiplere karşı</a> &bull;
+  <a href="#works-with-every-agent">Ajanlar</a> &bull;
+  <a href="#how-it-works">Nasıl Çalışır</a> &bull;
   <a href="#mcp-server">MCP</a> &bull;
-  <a href="#real-time-viewer">Viewer</a> &bull;
-  <a href="#iii-console">iii Console</a> &bull;
-  <a href="#powered-by-iii">Powered by iii</a> &bull;
-  <a href="#configuration">Config</a> &bull;
+  <a href="#real-time-viewer">İzleyici</a> &bull;
+  <a href="#iii-console">applalezar Konsol</a> &bull;
+  <a href="#powered-by-iii">iii tarafından desteklenmektedir.</a> &bull;
+  <a href="#configuration">Yapılandırma</a> &bull;
   <a href="#api">API</a>
 </p>
 
 ---
 
-## Install
+## Yükleme
 
 ```bash
 npm install -g @agentmemory/agentmemory          # once — bare `agentmemory` on PATH
@@ -95,7 +95,7 @@ Full options at [Quick Start](#quick-start) below. Agent-specific wiring at [Wor
 
 <h2 id="works-with-every-agent"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/tags/light/section-agents.svg"><img src="assets/tags/section-agents.svg" alt="Works with every agent" height="32" /></picture></h2>
 
-agentmemory works with any agent that supports hooks, MCP, or REST API. All agents share the same memory server.
+agentmemory, hook'ları, MCP'yi veya REST API'yi destekleyen herhangi bir ajanla çalışır. Tüm ajanlar aynı bellek sunucusunu paylaşır.
 
 <table>
 <tr>
@@ -185,20 +185,20 @@ agentmemory works with any agent that supports hooks, MCP, or REST API. All agen
 </table>
 
 <p align="center">
-  <sub>Works with <strong>any</strong> agent that speaks MCP or HTTP. One server, memories shared across all of them.</sub>
+  <sub>MCP veya HTTP ile konuşan herhangi bir ajanla çalışır. Tek bir sunucu, tüm ajanlar arasında paylaşılan bellek.</sub>
 </p>
 
 ---
 
-You explain the same architecture every session. You re-discover the same bugs. You re-teach the same preferences. Built-in memory (CLAUDE.md, .cursorrules) caps out at 200 lines and goes stale. agentmemory fixes this. It silently captures what your agent does, compresses it into searchable memory, and injects the right context when the next session starts. One command. Works across agents.
+Her oturumda aynı mimariyi açıklıyorsunuz. Aynı hataları yeniden keşfediyorsunuz. Aynı tercihleri ​​yeniden öğretiyorsunuz. Dahili bellek (CLAUDE.md, .cursorrules) 200 satırda doluyor ve eski hale geliyor. agentmemory bunu düzeltiyor. Ajanınızın ne yaptığını sessizce yakalıyor, aranabilir belleğe sıkıştırıyor ve bir sonraki oturum başladığında doğru bağlamı enjekte ediyor. Tek bir komut. Ajanlar arasında çalışır.
 
-**What changes:** Session 1 you set up JWT auth. Session 2 you ask for rate limiting. The agent already knows your auth uses jose middleware in `src/middleware/auth.ts`, your tests cover token validation, and you chose jose over jsonwebtoken for Edge compatibility. No re-explaining. No copy-pasting. The agent just *knows*.
+**Değişenler:** 1. Oturumda JWT kimlik doğrulamasını kuruyorsunuz. 2. Oturumda hız sınırlaması istiyorsunuz. Ajan zaten kimlik doğrulamanızın `src/middleware/auth.ts` dosyasında jose ara yazılımını kullandığını, testlerinizin token doğrulamasını kapsadığını ve Edge uyumluluğu için jsonwebtoken yerine jose'u seçtiğinizi biliyor. Yeniden açıklama yok. Kopyala yapıştır yok. Temsilci her şeyi *biliyor*.
 
 ```bash
 npx @agentmemory/agentmemory
 ```
 
-> **New in v0.9.0** — Landing site at [agent-memory.dev](https://agent-memory.dev), filesystem connector (`@agentmemory/fs-watcher`), standalone MCP now proxies to the running server so hooks and the viewer agree, audit policy codified across every delete path, health stops flagging `memory_critical` on tiny Node processes. Full notes in [CHANGELOG.md](CHANGELOG.md#090--2026-04-18).
+> **v0.9.0'daki Yenilikler** — [agent-memory.dev](https://agent-memory.dev) adresinde açılış sayfası, dosya sistemi bağlayıcısı (`@agentmemory/fs-watcher`), bağımsız MCP artık çalışan sunucuya proxy görevi görüyor, böylece kancalar ve görüntüleyici aynı fikirde oluyor, denetim politikası her silme yolunda kodlandı, sağlık durumu artık küçük Node süreçlerinde `memory_critical` hatası vermiyor. Ayrıntılı notlar [CHANGELOG.md](CHANGELOG.md#090--2026-04-18) dosyasında.
 
 ---
 
@@ -383,9 +383,9 @@ On Windows / PowerShell, the equivalent cache clear is `Remove-Item -Recurse -Fo
 
 ### Session Replay
 
-Every session agentmemory records is replayable. Open the viewer, pick the **Replay** tab, and scrub through the timeline: prompts, tool calls, tool results, and responses render as discrete events with play/pause, speed control (0.5×–4×), and keyboard shortcuts (space to toggle, arrows to step).
+AgentMemory'nin kaydettiği her oturum tekrar oynatılabilir. Görüntüleyiciyi açın, **Tekrar Oynat** sekmesini seçin ve zaman çizelgesinde ilerleyin: istemler, araç çağrıları, araç sonuçları ve yanıtlar, oynat/duraklat, hız kontrolü (0,5×–4×) ve klavye kısayolları (geçiş için boşluk, adım adım ilerlemek için ok tuşları) ile ayrı olaylar olarak görüntülenir.
 
-Already have older Claude Code JSONL transcripts you want to bring in?
+Daha önce Claude Code JSONL transkriptlerinizi getirmek mi istiyorsunuz?
 
 ```bash
 # Import everything under the default ~/.claude/projects
@@ -395,19 +395,19 @@ npx @agentmemory/agentmemory import-jsonl
 npx @agentmemory/agentmemory import-jsonl ~/.claude/projects/-my-project/abc123.jsonl
 ```
 
-Imported sessions show up in the Replay picker alongside native ones. Under the hood each entry routes through the `mem::replay::load`, `mem::replay::sessions`, and `mem::replay::import-jsonl` iii functions — no side-channel servers.
+İçe aktarılan oturumlar, yerel oturumlarla birlikte Tekrar Oynatma seçicisinde görünür. Arka planda her giriş, `mem::replay::load`, `mem::replay::sessions` ve `mem::replay::import-jsonl` fonksiyonları üzerinden yönlendirilir — yan kanal sunucuları yoktur.
 
-### Upgrade / Maintenance
+### Yükseltme / Bakım
 
-Use the maintenance command when you intentionally want to update your local runtime:
+Yerel çalışma zamanınızı kasıtlı olarak güncellemek istediğinizde bakım komutunu kullanın:
 
 ```bash
 npx @agentmemory/agentmemory upgrade
 ```
 
-Warning: this command mutates the current workspace/runtime. It can update JavaScript dependencies, may run `cargo install iii-engine --force`, and may pull Docker images.
+Uyarı: Bu komut mevcut çalışma alanını/çalışma ortamını değiştirir. JavaScript bağımlılıklarını güncelleyebilir, `cargo install iii-engine --force` komutunu çalıştırabilir ve Docker imajlarını indirebilir.
 
-Implementation details live in `src/cli.ts` (see `runUpgrade` around the `src/cli.ts:544-595` region).
+Uygulama detayları `src/cli.ts` dosyasında yer almaktadır (bkz. `runUpgrade`, `src/cli.ts:544-595` bölgesi).
 
 ### Claude Code (one block, paste it)
 
